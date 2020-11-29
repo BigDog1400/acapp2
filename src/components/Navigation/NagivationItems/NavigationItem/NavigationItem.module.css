@@ -17,7 +17,10 @@
 .NavigationItem a:active,
 .NavigationItem a.active{
     color: #40a4c8;
+    text-decoration: none;
 }
+
+
 
 @media(min-width: 500px){
     .NavigationItem {
