@@ -11,7 +11,7 @@ const app=(<BrowserRouter>
 </BrowserRouter>)
 
 ReactDOM.render(
-  <React.StrictMode>
+  <React.StrictMode style={{backgroundColor: '#HHH'}}>
     {app}
  </React.StrictMode>,
   document.getElementById('root')

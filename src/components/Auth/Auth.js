@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import {Container, Button, Form, Card} from 'react-bootstrap';
+import {Container, Button, Form, Card, Row} from 'react-bootstrap';
 import Logo from '../../assets/logo-black.png';
 class Auth extends Component {
     handlerSubmit = event =>{
@@ -8,8 +8,8 @@ class Auth extends Component {
     }
     render() {
         return (
-          <Container className='mx-auto w-50 pt-5'>
-            <Card className="mx-auto w-75" >
+          <Container className='mx-auto d-flex pt-5' >
+            <Card className="mx-auto">
             <Card.Img src={Logo}  variant='top'
             className="mx-auto mt-2"
             style={{width: '100px'}} />
