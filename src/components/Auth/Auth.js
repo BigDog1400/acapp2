@@ -1,16 +1,17 @@
 import React, { Component } from 'react';
-import {Container, Button, Card, Row, FormGroup, Form, FormControl} from 'react-bootstrap';
-import {Formik, Field, ErrorMessage} from 'formik';
+import {Container, Button, Card, FormGroup, FormControl, FormLabel, FormText} from 'react-bootstrap';
+import {Formik, Field, Form, ErrorMessage} from 'formik';
 import * as Yup from 'yup';
 import Logo from '../../assets/logo-black.png';
+import CustomErrorMessage from '../UI/CustomErrorMessage';
 const initialValues= {
   email: '',
   password: '',
 }
 
 const validationSchema = Yup.object({
-  email: Yup.string().required('Por favor introduzca un email'),
-  password: Yup.string().required('Por favor ingrse una contraseña')
+  email: Yup.string().email('Por favor ingrse un email valido').required('Por favor introduzca un email'),
+  password: Yup.string().required('Por favor ingrese una contraseña').min(6, 'Por favor ingrese una contraseña mas larga')
 })
 
 class Auth extends Component {
@@ -37,41 +38,36 @@ class Auth extends Component {
               initialValues={initialValues}
               validationSchema={validationSchema}
               onSubmit={this.onSubmitHandler}
-            >
-              {({handleSubmit, values,handleChange}) => (
-                <Form>
-                {console.log(values)}
-                  <Form.Group controlId='email'>
-                    <Form.Label>Correo Electronico</Form.Label>
+            >   
+            <Form>
+                  <FormGroup controlId='email'>
+                    <FormLabel>Correo Electronico</FormLabel>
                     <Field
-                      component={FormControl}
+                      as={FormControl}
                       type='email'
                       name='email'
-                      onChange={handleChange}
-
-                      nameplaceholder='Enter an email'
-                      values={values.email}
+                      placeholder='Enter an email'
                     />
-                    <Form.Text variant='light'>
+                    <FormText variant='light'>
                       Esto te ayudara a mantener tus rutinas registradas
-                    </Form.Text>
-                  </Form.Group>
-                  <Form.Group controlId='password'>
-                    <Form.Label>Contraseña</Form.Label>
+                    </FormText>
+                    <ErrorMessage component={CustomErrorMessage} name='email'></ErrorMessage>
+
+                  </FormGroup>
+                  <FormGroup controlId='password'>
+                    <FormLabel>Contraseña</FormLabel>
                     <Field
-                      component={FormControl}
+                      as={FormControl}
                       type='password'
                       name='password'
                       placeholder='Password'
-                      values={values.password}
-                      onChange={handleChange}
                     />
-                  </Form.Group>
-                  <Button onClick={handleSubmit} variant='primary'>
+                    <ErrorMessage component={CustomErrorMessage} name='password'></ErrorMessage>
+                  </FormGroup>
+                  <Button type='submit' variant='primary'>
                     Submit
                   </Button>
                 </Form>
-              )}
             </Formik>
           </Card.Body>
         </Card>
