@@ -15,31 +15,28 @@ const validationSchema = Yup.object({
 })
 
 class Auth extends Component {
-  handlerSubmit = (event) => {
-    event.preventDefault();
-    console.log(event);
-  };
+ 
   onSubmitHandler = (values) => {
     console.log(values);
   };
   render() {
     return (
-      <Container className='mx-auto d-flex pt-5'>
-        <Card className='mx-auto'>
+      <Container className='mx-auto d-flex pt-2' >
+        <Card className='mx-auto' >
           <Card.Img
             src={Logo}
             variant='top'
-            className='mx-auto mt-2'
+            className='mx-auto mt-3'
             style={{ width: '100px' }}
           />
           <Card.Body>
-            <Card.Title>Registro</Card.Title>
+            <Card.Title className='text-center font-weight-bold'>Registro</Card.Title>
             <Formik
               initialValues={initialValues}
               validationSchema={validationSchema}
               onSubmit={this.onSubmitHandler}
             >   
-            <Form>
+            <Form >
                   <FormGroup controlId='email'>
                     <FormLabel>Correo Electronico</FormLabel>
                     <Field
@@ -64,7 +61,7 @@ class Auth extends Component {
                     />
                     <ErrorMessage component={CustomErrorMessage} name='password'></ErrorMessage>
                   </FormGroup>
-                  <Button type='submit' variant='primary'>
+                  <Button  block type='submit' className='mx-auto' variant='primary'>
                     Submit
                   </Button>
                 </Form>
