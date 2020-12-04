@@ -10,8 +10,8 @@
     padding: 0 20px;
     box-sizing: border-box;
     z-index: 90;
-    background-color: #485461;
-    background-image: linear-gradient(315deg, #485461 0%, #28313b 74%);
+    background-color: #111111;
+    /* background-image: linear-gradient(315deg, #485461 0%, #28313b 74%); */
 }
 
 .Toolbar nav{
