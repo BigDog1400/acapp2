@@ -16,7 +16,7 @@
 .NavigationItem a:hover,
 .NavigationItem a:active,
 .NavigationItem a.active{
-    color: #0bc4e2 ;
+    color: #00b2cf ;
     text-decoration: none;
 }
 
@@ -32,7 +32,7 @@
     }
     
     .NavigationItem a{
-        color: white;
+        color:#F9F9F9;
         height: 100%;
         padding: 15px 10px;
         border-bottom: 4px solid transparent;
@@ -41,7 +41,7 @@
     .NavigationItem a:hover,
     .NavigationItem a:active,
     .NavigationItem a.active{
-        border-bottom: 4px solid #93deff;
-        color: white;
+        border-bottom: 3px solid #00b2cf;
+        color: #F9F9F9;
     }
 }
