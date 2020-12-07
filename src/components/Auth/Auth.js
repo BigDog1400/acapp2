@@ -1,9 +1,8 @@
 import React, { Component } from 'react';
-import {Container, Button, Card, FormGroup, FormControl, FormLabel, FormText} from 'react-bootstrap';
-import {Formik, Field, Form, ErrorMessage} from 'formik';
+import {Container, Button, Card} from 'react-bootstrap';
+import {Formik, Form} from 'formik';
 import * as Yup from 'yup';
 import Logo from '../../assets/logo-black.png';
-import CustomErrorMessage from '../UI/CustomErrorMessage';
 import { connect } from 'react-redux';
 import {auth} from '../../store/actions/index';
 import FormikControls from '../../shared/FormikControls/FormikControls';
@@ -66,19 +65,12 @@ class Auth extends Component {
                     label='Email'
                     name='email'
                   ></FormikControls>
-                <FormGroup controlId='password'>
-                  <FormLabel>Contraseña</FormLabel>
-                  <Field
-                    as={FormControl}
+                   <FormikControls
+                    control='input'
                     type='password'
+                    label='Contraseña'
                     name='password'
-                    placeholder='Password'
-                  />
-                  <ErrorMessage
-                    component={CustomErrorMessage}
-                    name='password'
-                  ></ErrorMessage>
-                </FormGroup>
+                  ></FormikControls>
                 {errorMessage}
                 <Button
                   block

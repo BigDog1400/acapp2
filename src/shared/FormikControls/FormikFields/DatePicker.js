@@ -7,9 +7,9 @@ import 'react-datepicker/dist/react-datepicker.css';
 const DatePicker = (props) => {
     const {label, name, ...rest} = props;
     return (
-        <div className='form-control'>
-            <label htmlFor={name}>{label}</label>
-            <Field name={name}>
+        <div className='form-group'>
+            <label className='form-label' htmlFor={name}>{label}</label>
+            <Field className='form-control' name={name}>
                 {({form, field})=>{
                     const  {setFieldValue} = form;
                     const {value} = field;

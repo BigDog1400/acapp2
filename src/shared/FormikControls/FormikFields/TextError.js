@@ -2,7 +2,7 @@ import React from 'react';
 
 const TextError = (props) => {
     return (
-        <div className='error'>
+        <div className='text-danger '>
             {props.children}
         </div>
     );

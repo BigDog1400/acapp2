@@ -5,9 +5,9 @@ import TextError from './TextError';
 const RadioButtons = (props) => {
     const {label, name, options , ...rest} = props;
     return (
-        <div className='form-control'>
-            <label>{label}</label>
-            <Field name={name} {...rest}>
+        <div className='form-group'>
+            <label className='form-label'>{label}</label>
+            <Field className='form-control' name={name} {...rest}>
                 {
                     ({field})=>{
                         console.log(field, 'field')
