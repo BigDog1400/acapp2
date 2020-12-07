@@ -6,6 +6,7 @@ import Logo from '../../assets/logo-black.png';
 import CustomErrorMessage from '../UI/CustomErrorMessage';
 import { connect } from 'react-redux';
 import {auth} from '../../store/actions/index';
+import FormikControls from '../../shared/FormikControls/FormikControls';
 const initialValues= {
   email: '',
   password: '',
@@ -41,8 +42,8 @@ class Auth extends Component {
       errorMessage = <p className='text-center font-weight-bold'>{this.props.error.message}</p>;
     }
     return (
-      <Container className='mx-auto d-flex pt-2' >
-        <Card className='mx-auto' >
+      <Container className='mx-auto d-flex pt-2'>
+        <Card className='mx-auto'>
           <Card.Img
             src={Logo}
             variant='top'
@@ -50,45 +51,54 @@ class Auth extends Component {
             style={{ width: '100px' }}
           />
           <Card.Body>
-            <Card.Title className='text-center font-weight-bold'>{this.state.isSignup ? 'Registro' : 'Acceder'}</Card.Title>
+            <Card.Title className='text-center font-weight-bold'>
+              {this.state.isSignup ? 'Registro' : 'Acceder'}
+            </Card.Title>
             <Formik
               initialValues={initialValues}
               validationSchema={validationSchema}
               onSubmit={this.onSubmitHandler}
-            >   
-            <Form >
-                  <FormGroup controlId='email'>
-                    <FormLabel>Correo Electronico</FormLabel>
-                    <Field
-                      as={FormControl}
-                      type='email'
-                      name='email'
-                      placeholder='Enter an email'
-                    />
-                    <FormText variant='light'>
-                      Esto te ayudara a mantener tus rutinas registradas
-                    </FormText>
-                    <ErrorMessage component={CustomErrorMessage} name='email'></ErrorMessage>
-
-                  </FormGroup>
-                  <FormGroup controlId='password'>
-                    <FormLabel>Contraseña</FormLabel>
-                    <Field
-                      as={FormControl}
-                      type='password'
-                      name='password'
-                      placeholder='Password'
-                    />
-                    <ErrorMessage component={CustomErrorMessage} name='password'></ErrorMessage>
-                  </FormGroup>
-                  {errorMessage}
-                  <Button  block type='submit' className='mx-auto' variant='primary'>
-                    Submit
-                  </Button>
-                  <Button onClick={this.switchModeHandler}  block className='mx-auto' variant={this.state.isSignup? 'dark'  : 'light'}>
-                    {this.state.isSignup ? 'Ya tengo cuenta, deseo logearme' : 'No tengo cuenta. Registrarme'}
-                  </Button>
-                </Form>
+            >
+              <Form>
+                  <FormikControls
+                    control='input'
+                    type='email'
+                    label='Email'
+                    name='email'
+                  ></FormikControls>
+                <FormGroup controlId='password'>
+                  <FormLabel>Contraseña</FormLabel>
+                  <Field
+                    as={FormControl}
+                    type='password'
+                    name='password'
+                    placeholder='Password'
+                  />
+                  <ErrorMessage
+                    component={CustomErrorMessage}
+                    name='password'
+                  ></ErrorMessage>
+                </FormGroup>
+                {errorMessage}
+                <Button
+                  block
+                  type='submit'
+                  className='mx-auto'
+                  variant='primary'
+                >
+                  Submit
+                </Button>
+                <Button
+                  onClick={this.switchModeHandler}
+                  block
+                  className='mx-auto'
+                  variant={this.state.isSignup ? 'dark' : 'light'}
+                >
+                  {this.state.isSignup
+                    ? 'Ya tengo cuenta, deseo logearme'
+                    : 'No tengo cuenta. Registrarme'}
+                </Button>
+              </Form>
             </Formik>
           </Card.Body>
         </Card>
