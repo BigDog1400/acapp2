@@ -12,7 +12,7 @@ const initialValues= {
 }
 
 const validationSchema = Yup.object({
-  email: Yup.string().email('Por favor ingrse un email valido').required('Por favor introduzca un email'),
+  email: Yup.string().email('Por favor ingrese un email valido').required('Por favor introduzca un email'),
   password: Yup.string().required('Por favor ingrese una contraseña').min(6, 'Por favor ingrese una contraseña mas larga')
 })
 
