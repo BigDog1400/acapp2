@@ -18,37 +18,37 @@ const Input_Exercise = () => {
         console.log(values);
     }
     return (
-       <Formik
-       initialValues={initialValues}
-       onSubmit={handlerSubmit}
-       validationSchema={validationSchema}
-       >
-           <Form>
-               <Row>
-                <Col xs={7}>
-               <FormikControls
-               control='input'
-               type='text'
-               label= 'Nombre'
-                name='name'
-               />
-               </Col>
-               <FormikControls
-               control='input'
-               type='number'
-               label= 'Sets'
-                name='sets'
-               />
-               <FormikControls
-               control='input'
-               type='number'
-               label= 'Reps'
-                name='reps'
-               />
-               </Row>
-           </Form>
-
-       </Formik>
+      <Formik
+        initialValues={initialValues}
+        onSubmit={handlerSubmit}
+        validationSchema={validationSchema}
+      >
+        <Form>
+          <Row>
+            <FormikControls
+              control='input'
+              type='text'
+              label='Nombre'
+              name='name'
+              className='mx-auto'
+            />
+            <FormikControls
+              control='input'
+              type='number'
+              label='Sets'
+              name='sets'
+              className='mx-auto'
+            />
+            <FormikControls
+              control='input'
+              type='number'
+              label='Reps'
+              name='reps'
+              className='mx-auto'
+            />
+          </Row>
+        </Form>
+      </Formik>
     );
 }
 
