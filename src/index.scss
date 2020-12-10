@@ -12,5 +12,11 @@ body{
     // background-color: #f9f9f9;
 }
 button{
-    border-radius: 0% !important;
+    border-radius: 1em !important;
+}
+.form-control{
+    border-radius: 1em;
+}
+label{
+    margin-left: 0.3rem;
 }

@@ -1,9 +1,11 @@
 import React from 'react';
 import FormikControls from '../../../../shared/FormikControls/FormikControls';
 import {Formik, Form} from 'formik';
-import {Row, Col} from 'react-bootstrap';
+import {Row, Button} from 'react-bootstrap';
 import * as Yup from 'yup';
-const Input_Exercise = () => {
+import './styles.scss';
+const Input_Exercise = (props) => {
+    const {newExercise} = {...props}
     const initialValues= {
         name: '',
         sets: 0,
@@ -15,7 +17,8 @@ const Input_Exercise = () => {
         reps : Yup.number().required('Requerido'),
     })
     const handlerSubmit = (values) =>{
-        console.log(values);
+      console.log(values)
+      newExercise(values);
     }
     return (
       <Formik
@@ -24,28 +27,31 @@ const Input_Exercise = () => {
         validationSchema={validationSchema}
       >
         <Form>
-          <Row>
+          <Row className='input__exercise'>
             <FormikControls
               control='input'
               type='text'
               label='Nombre'
               name='name'
-              className='mx-auto'
+              className='input__exercise-name'
             />
             <FormikControls
               control='input'
               type='number'
               label='Sets'
               name='sets'
-              className='mx-auto'
+              className='input__exercise-sets'
             />
             <FormikControls
               control='input'
               type='number'
               label='Reps'
               name='reps'
-              className='mx-auto'
+              className='input__exercise-sets '
             />
+            <Button type='submit'>
+              +
+            </Button>
           </Row>
         </Form>
       </Formik>
