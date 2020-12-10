@@ -17,7 +17,7 @@ const Input_Exercise = (props) => {
         reps : Yup.number().required('Requerido'),
     })
     const handlerSubmit = (values) =>{
-      console.log(values)
+      // console.log(values)
       newExercise(values);
     }
     return (
