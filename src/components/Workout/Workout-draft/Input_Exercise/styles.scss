@@ -1,4 +1,6 @@
 .input__exercise{
+    justify-content: center;
+    align-content: center;
     input{
         border: 2px solid black;
     }
@@ -8,8 +10,6 @@
     div {
         margin: 0 10px;
     }
-    justify-content: center;
-    align-content: center;
     button{
         flex: 0 1 35px;
         border-radius: 50%;
@@ -26,4 +26,21 @@
     .input__exercise-reps{
         flex: 0 0 80px;
     }
+} 
+@media only screen and (max-width: 576px)  {
+    .input__exercise{
+            width: 80%;
+            margin: auto;
+
+            .input__exercise-name{
+                flex:0 1 100%;
+            }
+            .input__exercise-sets{
+                flex:0 1 100%;
+        
+            }
+            .input__exercise-reps{
+                flex:0 1 100%;
+            }
+        }
 }
