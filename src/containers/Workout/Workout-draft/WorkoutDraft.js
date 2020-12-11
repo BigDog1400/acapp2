@@ -4,10 +4,11 @@ import './style.scss';
 import { nanoid } from 'nanoid'
 const WorkoutDraft = () => {
     const [listExercises,setListExercises] = useState({})
+    const [exercisesOrder,setExercisesOrder] = useState([])
     const addExercise = values =>{
       console.log(listExercises)
       const idGenerated=nanoid();
-      console.log(idGenerated)
+      setExercisesOrder(prevState => [...prevState, idGenerated]);
       setListExercises(prevState=> ({
         ...prevState,
         [idGenerated]: values
