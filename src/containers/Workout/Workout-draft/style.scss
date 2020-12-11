@@ -1,9 +1,15 @@
 .container_form-workout{
     display: flex;
     margin: 0 auto;
+    flex-direction: column;
+    align-items: center;
 
     .form-workout{
         margin: 0 auto;
         // display: flex;
+    }
+    .workout-list{
+        width: 60%;
+        
     }
 }

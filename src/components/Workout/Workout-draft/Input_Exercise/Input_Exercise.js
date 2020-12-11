@@ -3,6 +3,8 @@ import FormikControls from '../../../../shared/FormikControls/FormikControls';
 import {Formik, Form} from 'formik';
 import {Row, Button} from 'react-bootstrap';
 import * as Yup from 'yup';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faPlus } from '@fortawesome/free-solid-svg-icons'
 import './styles.scss';
 const Input_Exercise = (props) => {
     const {newExercise} = {...props}
@@ -27,7 +29,7 @@ const Input_Exercise = (props) => {
         validationSchema={validationSchema}
       >
         <Form>
-          <Row className='input__exercise'>
+          <div className='input__exercise'>
             <FormikControls
               control='input'
               type='text'
@@ -50,9 +52,9 @@ const Input_Exercise = (props) => {
               className='input__exercise-sets '
             />
             <Button type='submit'>
-              +
+              <FontAwesomeIcon icon={faPlus}/>
             </Button>
-          </Row>
+          </div>
         </Form>
       </Formik>
     );
