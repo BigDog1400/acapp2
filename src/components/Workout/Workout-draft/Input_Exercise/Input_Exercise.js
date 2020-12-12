@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useRef} from 'react';
 import FormikControls from '../../../../shared/FormikControls/FormikControls';
 import {Formik, Form} from 'formik';
 import {Row, Button} from 'react-bootstrap';
@@ -7,6 +7,8 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faPlus } from '@fortawesome/free-solid-svg-icons'
 import './styles.scss';
 const Input_Exercise = (props) => {
+    const inputNameEl = useRef(null);
+
     const {newExercise} = {...props}
     const initialValues= {
         name: '',
@@ -18,8 +20,10 @@ const Input_Exercise = (props) => {
         sets : Yup.number().required('Requerido'),
         reps : Yup.number().required('Requerido'),
     })
-    const handlerSubmit = (values) =>{
-      // console.log(values)
+    const handlerSubmit = (values,formik) =>{
+      console.log(values)
+      console.log(formik)
+      formik.resetForm(initialValues)
       newExercise(values);
     }
     return (
@@ -29,7 +33,7 @@ const Input_Exercise = (props) => {
         validationSchema={validationSchema}
       >
         <Form>
-          <div className='input__exercise'>
+          <div className='input__exercise'  >
             <FormikControls
               control='input'
               type='text'
