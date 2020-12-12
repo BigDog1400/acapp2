@@ -15,13 +15,20 @@ const WorkoutDraft = () => {
         [idGenerated]: values
       }));
     }
+    const removeExercise = (idExercise) =>{
+      setExercisesOrder(prevState => prevState.filter(el => el !== idExercise));
+      setListExercises(prevState=> {
+        delete prevState[idExercise]
+        return prevState;
+      });
+    }
     return (
       <div className='container_form-workout'>
         <div className='form-workout'>
           <Input_Exercise newExercise={addExercise}></Input_Exercise>
         </div>
         <div className='workout-list'>
-          {exercisesOrder.map(exerciseID => <List_item_exercise {...listExercises[exerciseID]}/>)}
+          {exercisesOrder.map(exerciseID => <List_item_exercise key={exerciseID} {...listExercises[exerciseID]} exerciseID={exerciseID} handlerRemove={removeExercise}/>)}
         </div>
       </div>
     );
