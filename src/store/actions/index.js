@@ -1,3 +1,6 @@
 export {
-    auth
+    auth,
 } from './auth'
+export {
+    setWorkout,
+} from './currentWorkout'

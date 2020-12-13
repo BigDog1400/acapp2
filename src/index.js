@@ -8,12 +8,14 @@ import './index.scss';
 import './index.css';
 import { createStore, applyMiddleware, compose, combineReducers } from 'redux';
 import authReducer from './store/reducers/auth';
+import workoutReducer from './store/reducers/currentWorkout';
 import thunk from 'redux-thunk';
 
 const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
 
 const rootReducer = combineReducers({
-  auth: authReducer
+  auth: authReducer,
+  workout: workoutReducer
 })
 
 const store = createStore(rootReducer, composeEnhancers(

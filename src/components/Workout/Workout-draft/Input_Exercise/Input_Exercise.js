@@ -35,6 +35,7 @@ const Input_Exercise = (props) => {
         <Form>
           <div className='input__exercise'  >
             <FormikControls
+              shouldAutoFocus
               control='input'
               type='text'
               label='Nombre'
