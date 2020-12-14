@@ -1,0 +1,19 @@
+.container-workout-routine{
+    display: flex;
+    flex-flow: column;
+    .workout-routine-indicator{
+        display: flex;
+        width: 40%;
+        margin: 0 auto;
+        .indicator-exercise{
+            flex: 1 0 60%;
+            background-color: rgb(189, 189, 189);
+            height: 160px;
+        }
+        .indicator-rest{
+            flex: 1 0 40%;
+            background-color: rgb(243, 164, 164);
+            height: 160px;
+        }
+    }
+}

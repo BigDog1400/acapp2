@@ -1,0 +1,31 @@
+.container-indicator{
+    display: flex;
+    flex-flow: column;
+    .indicator-exercise-name{
+        margin: 10px auto ;
+    }
+    .indicator-exercise-rest-sets{
+        margin: 0 auto ;
+        display: flex;
+        align-items: center;
+        .control-sets{
+            display: flex;
+            align-items: center;
+            line-height: 1;
+            .set-reps{
+                display: flex;
+                flex-flow: column;
+                padding-left: 5px;
+                align-items: center;
+            }
+            .checkout-set{
+                margin-left: 30px;
+
+                &:hover{
+                    cursor: pointer;
+                    color:green;
+                }
+            }
+        }
+    }
+}

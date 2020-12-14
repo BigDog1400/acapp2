@@ -1,9 +1,11 @@
 body {
   margin: 0;
-  font-family: 'Open sans', sans-serif;
+  /* font-family: 'Open sans', sans-serif; */
+  font-family: 'Varela Round', sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   /* background-color: #f1f6f9; */
+
 }
 
 code {

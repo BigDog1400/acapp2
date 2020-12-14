@@ -1,6 +1,8 @@
 import React from 'react';
 import {connect} from 'react-redux';
 import { Redirect } from 'react-router-dom/cjs/react-router-dom.min';
+import IndicatorExercise from '../../../components/Workout/Workout-train/IndicatorExercise/IndicatorExercise';
+import './style.scss';
 const WorkoutRoutine = (props) => {
   const { draftDone } = { ...props };
   const redirectWorkoutView = !draftDone ? (
@@ -9,8 +11,18 @@ const WorkoutRoutine = (props) => {
   return (
     <React.Fragment>
     {redirectWorkoutView}
-      <div>
-        <h1>I will train now!</h1>
+      <div className='container-workout-routine'>
+        <div className='workout-routine-indicator'>
+            <div className='indicator-exercise'>
+                <IndicatorExercise/>
+            </div>
+            <div className='indicator-rest'>
+
+            </div>
+        </div>
+        <div>
+            Hola
+        </div>
       </div>
     </React.Fragment>
   );
