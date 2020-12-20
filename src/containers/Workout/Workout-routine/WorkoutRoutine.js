@@ -1,7 +1,9 @@
 import React from 'react';
+import {Card} from 'react-bootstrap';
 import {connect} from 'react-redux';
 import { Redirect } from 'react-router-dom/cjs/react-router-dom.min';
 import IndicatorExercise from '../../../components/Workout/Workout-train/IndicatorExercise/IndicatorExercise';
+import IndicatorRest from '../../../components/Workout/Workout-train/IndicatorRest/IndicatorRest';
 import './style.scss';
 const WorkoutRoutine = (props) => {
   const { draftDone } = { ...props };
@@ -10,19 +12,17 @@ const WorkoutRoutine = (props) => {
   ) : null;
   return (
     <React.Fragment>
-    {redirectWorkoutView}
+      {redirectWorkoutView}
       <div className='container-workout-routine'>
         <div className='workout-routine-indicator'>
-            <div className='indicator-exercise'>
-                <IndicatorExercise/>
-            </div>
-            <div className='indicator-rest'>
-
-            </div>
+          <Card className='indicator-exercise'>
+            <IndicatorExercise />
+          </Card>
+          <Card className='indicator-rest'>
+            <IndicatorRest />
+          </Card>
         </div>
-        <div>
-            Hola
-        </div>
+        <div>Hola</div>
       </div>
     </React.Fragment>
   );

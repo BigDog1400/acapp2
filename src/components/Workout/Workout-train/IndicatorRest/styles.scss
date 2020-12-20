@@ -1,0 +1,41 @@
+.container-indicator-rest{
+    display: flex;
+    align-items: center;
+    flex-flow: column;
+    justify-content: space-evenly;
+    height: 100%;
+    .container-input-display{
+        align-items: center;
+        display: flex;
+       
+        span{
+            &:hover{
+                color: #00b2cf;
+                cursor: pointer;
+            }
+        }
+        .play-icon{
+            margin-left: 10px;
+            &:hover{
+                color: #000000;
+                cursor: pointer;
+            }
+        }
+    }
+    .clock-icon{
+        margin-top: 10px;
+        margin-bottom: 10px;
+    }
+}
+
+.input__timer{
+    width: 80%;
+    display: flex;
+    margin: 0 auto;
+    flex-flow: row;
+    justify-content: space-evenly;
+    .button__submit-timer{
+        height: min-content;
+        margin: auto 0;
+    }
+}
