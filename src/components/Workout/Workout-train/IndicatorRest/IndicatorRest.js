@@ -1,11 +1,12 @@
 import React, {useState} from 'react';
 import {Modal, Button} from 'react-bootstrap';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faClock, faPlay} from '@fortawesome/free-solid-svg-icons'
+import { faClock, faPlay, faStop} from '@fortawesome/free-solid-svg-icons'
 import './styles.scss';
 import FormikControls from '../../../../shared/FormikControls/FormikControls';
 import {Formik, Form} from 'formik';
 import * as Yup from 'yup';
+import Countdown from './Countdown/Countdown';
 const ModalSetTimer = (props) => {
   const {minutes, seconds,changeRest} = {...props};
   const initialValues={
@@ -67,10 +68,13 @@ const ModalSetTimer = (props) => {
     );
 };
 
+
+
 const IndicatorRest = () => {
   const [modalShow, setModalShow] = React.useState(false);
   const [seconds, setSeconds] = useState(0);
   const [minutes, setMinutes] = useState(2);
+  const [isTimerActive, setIsTimerActive] = useState(false);
   return (
     <div className='container-indicator-rest'>
       <FontAwesomeIcon
@@ -80,22 +84,30 @@ const IndicatorRest = () => {
       />
       <div className='container-input-display'>
         <span style={{ fontSize: '25px' }} onClick={() => setModalShow(true)}>
-          {minutes}:{seconds < 9 ? `0${seconds}` : seconds}
+          {isTimerActive ? (
+            <Countdown
+            minutes={minutes}
+            seconds={seconds}
+            stopTimer={() => setIsTimerActive(false)}
+            />
+          ) : (
+            <span>{minutes}:{seconds < 9 ? `0${seconds}` : seconds}</span>
+          )}
         </span>
         <FontAwesomeIcon
           style={{ fontSize: '34px' }}
           className='play-icon'
-          onClick={() => setModalShow(true)}
-          icon={faPlay}
+          onClick={() => setIsTimerActive(prevState=> !prevState)}
+          icon={isTimerActive ? faStop : faPlay}
         />
         <ModalSetTimer
           seconds={seconds}
           minutes={minutes}
           show={modalShow}
-          changeRest={values => {
-            setSeconds(values.seconds)
-            setMinutes(values.minutes)
-            setModalShow(false)
+          changeRest={(values) => {
+            setSeconds(values.seconds);
+            setMinutes(values.minutes);
+            setModalShow(false);
           }}
           onHide={() => setModalShow(false)}
         />
