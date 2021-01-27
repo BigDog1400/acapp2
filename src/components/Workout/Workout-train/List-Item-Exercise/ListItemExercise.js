@@ -1,17 +1,15 @@
-import React,{useState} from 'react';
-import './styles.scss';
-import {Button} from 'react-bootstrap';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faTrash, faFireAlt } from '@fortawesome/free-solid-svg-icons'
-import {connect} from 'react-redux';
-import {setCurrentExercise} from '../../../../store/actions/currentWorkout';
-import PropTypes from 'prop-types';
+import React, { useState } from "react";
+import "./styles.scss";
+import { Button } from "react-bootstrap";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faTrash, faFireAlt } from "@fortawesome/free-solid-svg-icons";
+import { connect } from "react-redux";
+import PropTypes from "prop-types";
 const ListItemExercise = (props) => {
-  const { name, sets, reps, exerciseID, setCurrentExercise, exerciseSelected} = { ...props };
-  const handleSelectExercise = (exerciseID)=>{
-    setCurrentExercise(exerciseID);
-  }
-  
+  const { name, sets, reps, exerciseID, onSelectExercise, exerciseSelected } = {
+    ...props
+  };
+
   return (
     <div className='list__item-exercise'>
       <div className='list_item-details'>
@@ -31,9 +29,14 @@ const ListItemExercise = (props) => {
             size='lg'
             variant='light'
             className='Button__set-exercise'
-            onClick={() => handleSelectExercise(exerciseID)}
+            onClick={() => onSelectExercise(exerciseID)}
           >
-            <FontAwesomeIcon icon={faFireAlt} color={`${exerciseID === exerciseSelected ? '#dc3545' : '#212529'}`} />
+            <FontAwesomeIcon
+              icon={faFireAlt}
+              color={`${
+                exerciseID === exerciseSelected ? "#dc3545" : "#212529"
+              }`}
+            />
           </Button>
         </div>
       </div>
@@ -42,20 +45,19 @@ const ListItemExercise = (props) => {
   );
 };
 
-
 ListItemExercise.prototype = {
   name: PropTypes.string,
   sets: PropTypes.number,
   reps: PropTypes.number,
   exerciseID: PropTypes.string,
   setCurrentExercise: PropTypes.func,
-  exerciseSelected: PropTypes.number,
+  exerciseSelected: PropTypes.number
 };
-const mapStateToProps = ({workout}) =>{
+
+const mapStateToProps = ({ workout }) => {
   return {
-    exerciseSelected : workout.exerciseSelected
-  }
-}
+    exerciseSelected: workout.exerciseSelected
+  };
+};
 
-
-export default connect(mapStateToProps, {setCurrentExercise})(ListItemExercise);
+export default connect(mapStateToProps)(ListItemExercise);
