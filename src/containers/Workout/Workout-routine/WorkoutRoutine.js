@@ -6,6 +6,7 @@ import IndicatorExercise from "../../../components/Workout/Workout-train/Indicat
 import IndicatorRest from "../../../components/Workout/Workout-train/IndicatorRest/IndicatorRest";
 import ListItemExercise from "../../../components/Workout/Workout-train/List-Item-Exercise/ListItemExercise";
 import { setCurrentExercise } from "../../../store/actions/currentWorkout";
+import PropTypes from "prop-types";
 
 import "./style.scss";
 const WorkoutRoutine = (props) => {
@@ -49,6 +50,7 @@ const WorkoutRoutine = (props) => {
     </React.Fragment>
   );
 };
+
 const mapStateToProps = ({ workout }) => {
   return {
     draftDone: workout.completed,
