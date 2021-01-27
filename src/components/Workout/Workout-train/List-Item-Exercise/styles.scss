@@ -1,0 +1,25 @@
+.list__item-exercise{
+    display: flex;
+    width: 60%;
+    max-width: 500px;
+    min-height: 5em;
+    justify-content: space-around;
+    align-items: center;
+    flex-flow: column;
+    border-radius: 0.25rem;
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px, rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;
+    margin: 1rem auto;
+    .list_item-details{
+        display: flex;
+        // flex-flow: column;
+        justify-content: space-around;
+        width: 100%;
+        align-items: center;
+    }
+    .exercise_progress{
+        height: 10px;
+        width: 90%;
+        border-radius: 1em;
+        background-color: #dc3545;
+    }
+}
