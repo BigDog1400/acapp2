@@ -4,10 +4,16 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faCaretDown, faCaretUp } from "@fortawesome/free-solid-svg-icons";
 import { faCheckSquare } from "@fortawesome/free-regular-svg-icons";
 import { connect } from "react-redux";
+import { setSetCompleted } from "../../../../store/actions/currentWorkout";
+
 const IndicatorExercise = (props) => {
   const [repsMade, setRepsMade] = useState(0);
   const [currentExercise, setCurrentExercise] = useState({});
-  const { exerciseSelected, listExercises } = { ...props };
+  const { exerciseSelected, listExercises, setSetCompleted } = { ...props };
+  const handleSetCompleted = () => {
+    console.log("trigger");
+    setSetCompleted(exerciseSelected, repsMade);
+  };
   const handleChangeRepsMade = (event) => {
     if (event === "decrease") {
       setRepsMade((prevState) => prevState - 1);
@@ -65,6 +71,7 @@ const IndicatorExercise = (props) => {
             <FontAwesomeIcon
               style={{ fontSize: "34px" }}
               icon={faCheckSquare}
+              onClick={handleSetCompleted}
             />
           </div>
         </div>
@@ -80,4 +87,4 @@ const mapStateToProps = ({ workout }) => {
   };
 };
 
-export default connect(mapStateToProps)(IndicatorExercise);
+export default connect(mapStateToProps, { setSetCompleted })(IndicatorExercise);
