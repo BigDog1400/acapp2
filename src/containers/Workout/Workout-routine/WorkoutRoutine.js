@@ -4,9 +4,10 @@ import {connect} from 'react-redux';
 import { Redirect } from 'react-router-dom/cjs/react-router-dom.min';
 import IndicatorExercise from '../../../components/Workout/Workout-train/IndicatorExercise/IndicatorExercise';
 import IndicatorRest from '../../../components/Workout/Workout-train/IndicatorRest/IndicatorRest';
+import ListItemExercise from '../../../components/Workout/Workout-train/List-Item-Exercise/ListItemExercise';
 import './style.scss';
 const WorkoutRoutine = (props) => {
-  const { draftDone } = { ...props };
+  const { draftDone,listExercises,exercisesOrder } = { ...props };
   const redirectWorkoutView = !draftDone ? (
     <Redirect to='/workout/draft' />
   ) : null;
@@ -22,12 +23,28 @@ const WorkoutRoutine = (props) => {
             <IndicatorRest />
           </Card>
         </div>
-        <div>Hola</div>
+        <div className='workout-routine-exercises'>
+          {
+            exercisesOrder.map((exerciseIdenfitier,index) => {
+              return (
+                <ListItemExercise
+                  key={index}
+                  {...listExercises[exerciseIdenfitier]}
+                  exerciseID={exerciseIdenfitier}
+                />
+              );
+            })
+          }
+        </div>
       </div>
     </React.Fragment>
   );
 };
 const mapStateToProps = ({workout}) =>{
-    return { draftDone: workout.completed };
+    return {
+      draftDone: workout.completed,
+      listExercises: workout.listExercises,
+      exercisesOrder: workout.exercisesOrder,
+    };
 }
 export default connect(mapStateToProps)(WorkoutRoutine);

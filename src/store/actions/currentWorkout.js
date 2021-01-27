@@ -6,3 +6,9 @@ export const setWorkout= (listExercises, exercisesOrder) =>{
       payload: { listExercises, exercisesOrder, completed : true },
     };
 }
+export const setCurrentExercise= (exerciseSelected) =>{
+    return {
+      type: actionTypes.SET_CURRENT_EXERCISE,
+      payload: {exerciseSelected},
+    };
+}

@@ -15,7 +15,7 @@ const Countdown = (props) => {
 
     useEffect(()=>{
         console.log('tick tick')
-        const tick= setInterval(()=> updateCountdown(),1000,1000)
+        const tick= setInterval(()=> updateCountdown(),200)
         return () => clearInterval(tick) 
     }, [])
 

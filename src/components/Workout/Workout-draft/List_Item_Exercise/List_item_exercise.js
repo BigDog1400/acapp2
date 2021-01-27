@@ -1,9 +1,9 @@
-import React,{useState} from 'react';
-import './index.scss';
-import {Button} from 'react-bootstrap';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faTrash } from '@fortawesome/free-solid-svg-icons'
-const List_item_exercise = (props) => {
+import React, { useState } from "react";
+import "./index.scss";
+import { Button } from "react-bootstrap";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faTrash } from "@fortawesome/free-solid-svg-icons";
+const ListItemExercise = (props) => {
   const { name, sets, reps, exerciseID, handlerRemove } = { ...props };
   return (
     <div className='list__item-draft'>
@@ -24,4 +24,4 @@ const List_item_exercise = (props) => {
   );
 };
 
-export default List_item_exercise;
+export default ListItemExercise;
