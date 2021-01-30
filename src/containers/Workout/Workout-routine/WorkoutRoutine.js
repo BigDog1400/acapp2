@@ -7,8 +7,13 @@ import IndicatorRest from "../../../components/Workout/Workout-train/IndicatorRe
 import ListItemExercise from "../../../components/Workout/Workout-train/List-Item-Exercise/ListItemExercise";
 import { setCurrentExercise } from "../../../store/actions/currentWorkout";
 import PropTypes from "prop-types";
-
 import "./style.scss";
+
+const getNextExerciseOnThelist = (listExercises) =>
+  Object.entries(listExercises).find(
+    ([, exerciseData]) => exerciseData.sets > exerciseData.results
+  );
+
 const WorkoutRoutine = (props) => {
   const { draftDone, listExercises, exercisesOrder, setCurrentExercise } = {
     ...props
@@ -21,6 +26,15 @@ const WorkoutRoutine = (props) => {
   ) : null;
   const handleSelectExercise = (exerciseID) => {
     setCurrentExercise(exerciseID);
+  };
+  const onExerciseFinished = (exerciseID) => {
+    const nextExercise = getNextExerciseOnThelist(listExercises);
+    if (nextExercise) {
+      const [nextExerciseID] = nextExercise;
+      handleSelectExercise(nextExerciseID);
+    } else {
+      console.log("se acabo");
+    }
   };
   return (
     <React.Fragment>
@@ -38,6 +52,7 @@ const WorkoutRoutine = (props) => {
           {exercisesOrder.map((exerciseIdenfitier, index) => {
             return (
               <ListItemExercise
+                handleSetsFinished={onExerciseFinished}
                 key={index}
                 onSelectExercise={handleSelectExercise}
                 {...listExercises[exerciseIdenfitier]}

@@ -11,7 +11,6 @@ const IndicatorExercise = (props) => {
   const [currentExercise, setCurrentExercise] = useState({});
   const { exerciseSelected, listExercises, setSetCompleted } = { ...props };
   const handleSetCompleted = () => {
-    console.log("trigger");
     setSetCompleted(exerciseSelected, repsMade);
   };
   const handleChangeRepsMade = (event) => {

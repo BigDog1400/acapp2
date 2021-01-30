@@ -1,15 +1,29 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import "./styles.scss";
 import { Button } from "react-bootstrap";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faTrash, faFireAlt } from "@fortawesome/free-solid-svg-icons";
+import { faTrash, faFireAlt, faCheck } from "@fortawesome/free-solid-svg-icons";
 import { connect } from "react-redux";
 import PropTypes from "prop-types";
 const ListItemExercise = (props) => {
-  const { name, sets, reps, exerciseID, onSelectExercise, exerciseSelected } = {
+  const {
+    name,
+    sets,
+    reps,
+    exerciseID,
+    onSelectExercise,
+    exerciseSelected,
+    results,
+    handleSetsFinished
+  } = {
     ...props
   };
 
+  useEffect(() => {
+    if (results.length >= sets) {
+      handleSetsFinished(exerciseID);
+    }
+  }, [results]);
   return (
     <div className='list__item-exercise'>
       <div className='list_item-details'>
@@ -25,19 +39,25 @@ const ListItemExercise = (props) => {
           </span>
         </div>
         <div>
-          <Button
-            size='lg'
-            variant='light'
-            className='Button__set-exercise'
-            onClick={() => onSelectExercise(exerciseID)}
-          >
-            <FontAwesomeIcon
-              icon={faFireAlt}
-              color={`${
-                exerciseID === exerciseSelected ? "#dc3545" : "#212529"
-              }`}
-            />
-          </Button>
+          {results.length >= sets ? (
+            <Button size='lg' variant='light' className='Button__set-exercise'>
+              <FontAwesomeIcon icon={faCheck} color={"black"} />
+            </Button>
+          ) : (
+            <Button
+              size='lg'
+              variant='light'
+              className='Button__set-exercise'
+              onClick={() => onSelectExercise(exerciseID)}
+            >
+              <FontAwesomeIcon
+                icon={faFireAlt}
+                color={`${
+                  exerciseID === exerciseSelected ? "#dc3545" : "#212529"
+                }`}
+              />
+            </Button>
+          )}
         </div>
       </div>
       <div className='exercise_progress'></div>
@@ -51,7 +71,8 @@ ListItemExercise.prototype = {
   reps: PropTypes.number,
   exerciseID: PropTypes.string,
   setCurrentExercise: PropTypes.func,
-  exerciseSelected: PropTypes.number
+  exerciseSelected: PropTypes.number,
+  results: PropTypes.array
 };
 
 const mapStateToProps = ({ workout }) => {
