@@ -31,7 +31,9 @@ const ListItemExercise = (props) => {
           <span>{name}</span>
         </div>
         <div>
-          <span>{sets}/5</span>
+          <span>
+            {results.length}/{sets}
+          </span>
         </div>
         <div>
           <span>
@@ -60,7 +62,14 @@ const ListItemExercise = (props) => {
           )}
         </div>
       </div>
-      <div className='exercise_progress'></div>
+      <div className='exercise_progress'>
+        <div
+          className='exercise_progress__indicator'
+          style={{
+            width: `${(results.length / sets) * 100}%`
+          }}
+        ></div>
+      </div>
     </div>
   );
 };
