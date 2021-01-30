@@ -29,18 +29,18 @@ const IndicatorExercise = (props) => {
     return () => {
       setCurrentExercise({});
     };
-  }, [exerciseSelected]);
+  }, [exerciseSelected, listExercises[exerciseSelected]]);
   return (
     <div className='container-indicator-sets'>
       <div className='indicator-exercise-name'>
         <span>
-          {currentExercise.name}{" "}
+          {currentExercise.name}
           {currentExercise.results && currentExercise.results.length + 1}/
           {currentExercise.sets}
         </span>
       </div>
       <div className='indicator-exercise-rest-sets'>
-        <span>4x</span>
+        <span>{currentExercise.results?.length + 1}x</span>
         <div className='control-sets'>
           <div className='set-reps'>
             <button
