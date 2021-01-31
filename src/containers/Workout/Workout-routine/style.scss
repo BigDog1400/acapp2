@@ -1,33 +1,57 @@
-.container-workout-routine{
+@import "../../../shared/breakpoints.scss";
+.container-workout-routine {
+  display: flex;
+  flex-flow: column;
+  .workout-routine-indicator {
     display: flex;
+    width: 100%;
+    flex-wrap: wrap;
+    // box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px, rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;
+    border-radius: 1em !important;
+    margin: 0 auto;
+    justify-content: space-evenly;
+    @media screen and (min-width: $screen-md-min) {
+      width: 80%;
+      justify-content: space-between;
+    }
+    @media screen and (min-width: $screen-lg-min) {
+      width: 60%;
+    }
+    @media screen and (min-width: $screen-xl-min) {
+      width: 60%;
+      justify-content: space-evenly;
+    }
+    .indicator-exercise {
+      flex: 1 0 100%;
+      border-radius: 1em !important;
+      height: 160px;
+    }
+    .indicator-rest {
+      flex: 1 0 100%;
+      margin-top: 1rem;
+      border-radius: 1em !important;
+      height: 160px;
+      @media screen and (min-width: $screen-md-min) {
+        margin-top: 0px;
+      }
+    }
+    .indicator-exercise,
+    .indicator-rest {
+      @media screen and (min-width: $screen-md-min) {
+        flex: 0 0 300px;
+      }
+      @media screen and (min-width: $screen-lg-min) {
+        flex: 0 0 300px;
+      }
+      @media screen and (min-width: $screen-xl-min) {
+        flex: 0 0 400px;
+      }
+    }
+  }
+  .workout-routine-exercises {
+    display: flex;
+    margin: 50px auto 0 auto;
     flex-flow: column;
-    .workout-routine-indicator{
-        display: flex;
-        width: 40%;
-        // box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px, rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;
-        border-radius: 1em !important;
-        margin: 0 auto;
-        justify-content: space-evenly;
-        .indicator-exercise{
-            flex: 0 0 40%;
-            border-radius: 1em !important;
-            // background-color: rgb(189, 189, 189);
-            // height: 160px;
-        }
-        .indicator-rest{
-            flex: 0 0 30%;
-            border-radius: 1em !important;
-            // height: 160px;
-            // align-items: center;
-            // display: flex;
-            // justify-content: center;
-        }
-    }
-    .workout-routine-exercises{
-        display: flex;
-        margin: 50px auto 0 auto;
-        flex-flow: column;
-        width: 60%;
-        
-    }
+    width: 100%;
+  }
 }

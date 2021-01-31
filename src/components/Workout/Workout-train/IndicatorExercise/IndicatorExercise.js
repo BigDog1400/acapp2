@@ -1,7 +1,11 @@
 import React, { useState, useEffect } from "react";
 import "./styles.scss";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faCaretDown, faCaretUp } from "@fortawesome/free-solid-svg-icons";
+import {
+  faCaretDown,
+  faCaretUp,
+  faCheckCircle
+} from "@fortawesome/free-solid-svg-icons";
 import { faCheckSquare } from "@fortawesome/free-regular-svg-icons";
 import { connect } from "react-redux";
 import { setSetCompleted } from "../../../../store/actions/currentWorkout";
@@ -33,10 +37,8 @@ const IndicatorExercise = (props) => {
   return (
     <div className='container-indicator-sets'>
       <div className='indicator-exercise-name'>
-        <span>
+        <span className='font-weight-bold' style={{ fontSize: "1.1rem" }}>
           {currentExercise.name}
-          {currentExercise.results && currentExercise.results.length + 1}/
-          {currentExercise.sets}
         </span>
       </div>
       <div className='indicator-exercise-rest-sets'>
@@ -69,7 +71,7 @@ const IndicatorExercise = (props) => {
           <div className='checkout-set'>
             <FontAwesomeIcon
               style={{ fontSize: "34px" }}
-              icon={faCheckSquare}
+              icon={faCheckCircle}
               onClick={handleSetCompleted}
             />
           </div>
