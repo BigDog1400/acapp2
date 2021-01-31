@@ -12,7 +12,7 @@ import { useHistory } from "react-router-dom";
 
 const getNextExerciseOnThelist = (listExercises) =>
   Object.entries(listExercises).find(
-    ([, exerciseData]) => exerciseData.sets > exerciseData.results
+    ([, exerciseData]) => exerciseData.sets > exerciseData.results.length
   );
 
 const WorkoutRoutine = (props) => {
