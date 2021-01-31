@@ -1,0 +1,39 @@
+@import "../../../../shared/breakpoints.scss";
+
+.list__item-draft {
+  display: flex;
+  width: 60%;
+  max-width: 500px;
+  min-height: 5em;
+  justify-content: space-around;
+  align-items: center;
+  border-radius: 0.25rem;
+  box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px,
+    rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;
+  margin: 1rem auto;
+  @media screen and (min-width: $screen-md-min) {
+    margin: 2rem auto;
+  }
+  @media screen and (min-width: $screen-lg-min) {
+    margin: 3rem auto;
+  }
+  button {
+    height: 40px;
+    width: 40px;
+    border-radius: 50% !important;
+    text-overflow: clip;
+
+    /* Required for text-overflow to do anything */
+    // white-space: nowrap;
+    // overflow: hidden;
+  }
+  .item-draft_name {
+    flex: 0 1 45%;
+  }
+}
+
+@media only screen and (max-width: 768px) {
+  .list__item-draft {
+    width: 100%;
+  }
+}

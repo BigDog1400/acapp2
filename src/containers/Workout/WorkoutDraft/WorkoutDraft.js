@@ -1,6 +1,6 @@
 import React, { useState } from "react";
-import Input_Exercise from "../../../components/Workout/Workout-draft/Input_Exercise/Input_Exercise";
-import ListItemExercise from "../../../components/Workout/Workout-draft/List_Item_Exercise/List_item_exercise";
+import InputExercise from "../../../components/Workout/Workout-draft/InputExercise/InputExercise";
+import ListItemExercise from "../../../components/Workout/Workout-draft/ListItemExercise/List_item_exercise";
 import "./style.scss";
 import { nanoid } from "nanoid";
 import { Button } from "react-bootstrap";
@@ -45,7 +45,7 @@ const WorkoutDraft = (props) => {
       {redirectWorkoutView}
       <div className='container_form-workout'>
         <div className='form-workout'>
-          <Input_Exercise newExercise={addExercise}></Input_Exercise>
+          <InputExercise newExercise={addExercise}></InputExercise>
         </div>
         <div className='workout-list'>
           {exercisesOrder.map((exerciseID) => (

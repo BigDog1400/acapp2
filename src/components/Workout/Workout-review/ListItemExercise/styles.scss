@@ -1,0 +1,26 @@
+@import "../../../../shared/breakpoints.scss";
+.container-list-item-exercise-review {
+  margin: 1rem 1rem 0 1rem;
+  padding: 10px;
+  display: flex;
+  //   justify-content: center;
+  align-items: center;
+  width: 280px;
+  border-radius: 0.25rem;
+  box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px,
+    rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;
+  @media screen and (min-width: $screen-md-min) {
+    width: 400px;
+  }
+  .exercise-name {
+    font-weight: bold;
+  }
+  .container-exercise-sets {
+    margin-top: 20px;
+
+    .exercise-resume-set {
+      text-align: center;
+      margin-top: 8px;
+    }
+  }
+}
