@@ -1,14 +1,12 @@
-import React, { useRef } from "react";
+import React from "react";
 import FormikControls from "../../../../shared/FormikControls/FormikControls";
 import { Formik, Form } from "formik";
-import { Row, Button } from "react-bootstrap";
+import { Button } from "react-bootstrap";
 import * as Yup from "yup";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faPlus } from "@fortawesome/free-solid-svg-icons";
 import "./styles.scss";
-const Input_Exercise = (props) => {
-  const inputNameEl = useRef(null);
-
+const InputExercise = (props) => {
   const { newExercise } = { ...props };
   const initialValues = {
     name: "",
@@ -63,4 +61,4 @@ const Input_Exercise = (props) => {
   );
 };
 
-export default Input_Exercise;
+export default InputExercise;

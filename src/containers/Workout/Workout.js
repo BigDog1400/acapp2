@@ -1,8 +1,8 @@
 import React from "react";
 import { Redirect, Route, Switch } from "react-router-dom";
-import WorkoutRoutine from "./Workout-routine/WorkoutRoutine";
-import WorkoutDraft from "./Workout-draft/WorkoutDraft";
-import WorkoutReview from "./Workout-review/WorkoutReview";
+import WorkoutRoutine from "./WorkoutRoutine/WorkoutRoutine";
+import WorkoutDraft from "./WorkoutDraft/WorkoutDraft";
+import WorkoutReview from "./WorkoutReview/WorkoutReview";
 const Workout = () => {
   return (
     <Switch>

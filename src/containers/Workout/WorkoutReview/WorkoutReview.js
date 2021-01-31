@@ -1,11 +1,11 @@
-import React, { useEffect } from "react";
+import React from "react";
 import { connect } from "react-redux";
 import { Redirect } from "react-router-dom/cjs/react-router-dom.min";
-import ListItemExerciseReview from "../../../components/Workout/Workout-review/List-Item-Exercise/ListItemExercise";
+import ListItemExerciseReview from "../../../components/Workout/Workout-review/ListItemExercise/ListItemExercise";
 import "./styles.scss";
 
 const WorkoutReview = (props) => {
-  const { draftDone, listExercises, exercisesOrder, setCurrentExercise } = {
+  const { draftDone, listExercises, exercisesOrder } = {
     ...props
   };
 

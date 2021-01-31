@@ -6,7 +6,6 @@ import {
   faCaretUp,
   faCheckCircle
 } from "@fortawesome/free-solid-svg-icons";
-import { faCheckSquare } from "@fortawesome/free-regular-svg-icons";
 import { connect } from "react-redux";
 import { setSetCompleted } from "../../../../store/actions/currentWorkout";
 
