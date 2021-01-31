@@ -8,6 +8,7 @@ import ListItemExercise from "../../../components/Workout/Workout-train/List-Ite
 import { setCurrentExercise } from "../../../store/actions/currentWorkout";
 import PropTypes from "prop-types";
 import "./style.scss";
+import { useHistory } from "react-router-dom";
 
 const getNextExerciseOnThelist = (listExercises) =>
   Object.entries(listExercises).find(
@@ -18,6 +19,8 @@ const WorkoutRoutine = (props) => {
   const { draftDone, listExercises, exercisesOrder, setCurrentExercise } = {
     ...props
   };
+  const history = useHistory();
+
   useEffect(() => {
     handleSelectExercise(exercisesOrder[0]);
   }, []);
@@ -33,7 +36,7 @@ const WorkoutRoutine = (props) => {
       const [nextExerciseID] = nextExercise;
       handleSelectExercise(nextExerciseID);
     } else {
-      console.log("se acabo");
+      history.push("/workout/review");
     }
   };
   return (
